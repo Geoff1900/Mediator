@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client1.cs" />
-    <Compile Include="Client2.cs" />
-    <Compile Include="MyMediator.cs" />
+    <Compile Include="Client.cs" />
+     <Compile Include="MyMediator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
