@@ -1,27 +1,28 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace SimpleDemoApp
 {
     public class Client
     {
         private MyMediator _myMediator;
-        private string _message;
+        private string _clientName;
         public Client(MyMediator myMediator, string ClientName)
         {
              _myMediator = myMediator;
-            _message = ClientName;
-            _myMediator.ClientMessageReceipted += new MessageReceipted(Received);
+            _clientName = ClientName;
+            _myMediator.ClientMessageReceipted += new MessageReceipted(ReceivedAsync);
          }
 
-        public void Received(string msg)
+        public async void ReceivedAsync(string msg)
         {
-            Console.WriteLine($"{_message}: {msg}");
-            Console.ReadLine();
+            await Task.Delay(3000);
+            Console.WriteLine($"{_clientName}: {msg}");
         }
 
         public void Send()
         {
-            _myMediator.Send(_message);
+            _myMediator.Send(_clientName);
         }
     }
 }
